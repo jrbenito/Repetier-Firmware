@@ -329,13 +329,13 @@ STEPPER_CURRENT_CONTROL
 #define Z_MIN_PIN          18
 #define Z_MAX_PIN          19
 
-#define E0_STEP_PIN         26
-#define E0_DIR_PIN          28
-#define E0_ENABLE_PIN       24
+#define E1_STEP_PIN         26
+#define E1_DIR_PIN          28
+#define E1_ENABLE_PIN       24
 
-#define E1_STEP_PIN         36
-#define E1_DIR_PIN          34
-#define E1_ENABLE_PIN       30
+#define E0_STEP_PIN         36
+#define E0_DIR_PIN          34
+#define E0_ENABLE_PIN       30
 
 #define SDPOWER            -1
 #define SDSS               53
@@ -348,7 +348,7 @@ STEPPER_CURRENT_CONTROL
 
 #define HEATER_0_PIN       10
 #define HEATER_1_PIN       8
-#define HEATER_2_PIN       9
+#define HEATER_2_PIN       -1
 #define TEMP_0_PIN         13   // ANALOG NUMBERING
 #define TEMP_1_PIN         14   // ANALOG NUMBERING
 #define TEMP_2_PIN         15

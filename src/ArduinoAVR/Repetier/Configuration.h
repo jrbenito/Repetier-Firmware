@@ -57,10 +57,10 @@
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
-#define EXT0_STEP_PIN E0_STEP_PIN
-#define EXT0_DIR_PIN E0_DIR_PIN
-#define EXT0_INVERSE 0
-#define EXT0_ENABLE_PIN E0_ENABLE_PIN
+#define EXT0_STEP_PIN E1_STEP_PIN
+#define EXT0_DIR_PIN E1_DIR_PIN
+#define EXT0_INVERSE 1
+#define EXT0_ENABLE_PIN E1_ENABLE_PIN
 #define EXT0_ENABLE_ON 0
 #define EXT0_MAX_FEEDRATE 50
 #define EXT0_MAX_START_FEEDRATE 20
@@ -122,34 +122,34 @@
 // ################ Endstop configuration #####################
 
 #define ENDSTOP_PULLUP_X_MIN true
-#define ENDSTOP_X_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_X true
+#define ENDSTOP_X_MIN_INVERTING false
+#define MIN_HARDWARE_ENDSTOP_X false
 #define ENDSTOP_PULLUP_Y_MIN true
-#define ENDSTOP_Y_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_Y true
+#define ENDSTOP_Y_MIN_INVERTING false
+#define MIN_HARDWARE_ENDSTOP_Y false
 #define ENDSTOP_PULLUP_Z_MIN true
-#define ENDSTOP_Z_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_Z true
+#define ENDSTOP_Z_MIN_INVERTING false
+#define MIN_HARDWARE_ENDSTOP_Z false
 #define ENDSTOP_PULLUP_X_MAX true
 #define ENDSTOP_X_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_X false
+#define MAX_HARDWARE_ENDSTOP_X true
 #define ENDSTOP_PULLUP_Y_MAX true
 #define ENDSTOP_Y_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Y false
+#define MAX_HARDWARE_ENDSTOP_Y true
 #define ENDSTOP_PULLUP_Z_MAX true
 #define ENDSTOP_Z_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Z false
+#define MAX_HARDWARE_ENDSTOP_Z true
 #define max_software_endstop_r true
 
-#define min_software_endstop_x false
-#define min_software_endstop_y false
-#define min_software_endstop_z false
-#define max_software_endstop_x true
-#define max_software_endstop_y true
-#define max_software_endstop_z true
+#define min_software_endstop_x true
+#define min_software_endstop_y true
+#define min_software_endstop_z true
+#define max_software_endstop_x false
+#define max_software_endstop_y false
+#define max_software_endstop_z false
 #define ENDSTOP_X_BACK_MOVE 5
 #define ENDSTOP_Y_BACK_MOVE 5
-#define ENDSTOP_Z_BACK_MOVE 1
+#define ENDSTOP_Z_BACK_MOVE 5
 #define ENDSTOP_X_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
@@ -167,9 +167,9 @@
 #define DISABLE_Y 0
 #define DISABLE_Z 0
 #define DISABLE_E 0
-#define INVERT_X_DIR 0
-#define INVERT_Y_DIR 0
-#define INVERT_Z_DIR 0
+#define INVERT_X_DIR 1
+#define INVERT_Y_DIR 1
+#define INVERT_Z_DIR 1
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR 1
@@ -196,6 +196,10 @@
 #define DELTA_RADIUS_CORRECTION_A 0
 #define DELTA_RADIUS_CORRECTION_B 0
 #define DELTA_RADIUS_CORRECTION_C 0
+#define DELTA_DIAGONAL_CORRECTION_A 0
+#define DELTA_DIAGONAL_CORRECTION_B 0
+#define DELTA_DIAGONAL_CORRECTION_C 0
+#define DELTA_MAX_RADIUS 150
 #define DELTA_RADIUS 82.639
 #define DELTA_HOME_ON_POWER 0
 #define STEP_COUNTER
@@ -278,6 +282,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 // #################### Z-Probing #####################
 
 #define FEATURE_Z_PROBE 0
+#define Z_PROBE_BED_DISTANCE 10
 #define Z_PROBE_PIN -1
 #define Z_PROBE_PULLUP 0
 #define Z_PROBE_ON_HIGH 0
@@ -351,18 +356,18 @@ Values must be in range 1..255
 
 ========== Start configuration string ==========
 {
-    "editMode": 1,
+    "editMode": 2,
     "processor": 0,
     "baudrate": 115200,
     "xStepsPerMM": 98.42519685,
     "yStepsPerMM": 98.42519685,
     "zStepsPerMM": 98.42519685,
-    "xInvert": 0,
+    "xInvert": "1",
     "xInvertEnable": 0,
     "eepromMode": 0,
-    "yInvert": 0,
+    "yInvert": "1",
     "yInvertEnable": 0,
-    "zInvert": 0,
+    "zInvert": "1",
     "zInvertEnable": 0,
     "extruder": [
         {
@@ -377,7 +382,7 @@ Values must be in range 1..255
             "inverse": 0,
             "maxFeedrate": 50,
             "startFeedrate": 20,
-            "invert": "0",
+            "invert": "1",
             "invertEnable": "0",
             "acceleration": 5000,
             "watchPeriod": 1,
@@ -399,22 +404,22 @@ Values must be in range 1..255
             "xOffsetSteps": 0,
             "yOffsetSteps": 0,
             "stepper": {
-                "name": "Extruder 0",
-                "step": "E0_STEP_PIN",
-                "dir": "E0_DIR_PIN",
-                "enable": "E0_ENABLE_PIN"
+                "name": "Extruder 1",
+                "step": "E1_STEP_PIN",
+                "dir": "E1_DIR_PIN",
+                "enable": "E1_ENABLE_PIN"
             },
             "advanceBacklashSteps": 0
         }
     ],
     "uiLanguage": 0,
     "uiController": 0,
-    "xMinEndstop": 1,
-    "yMinEndstop": 1,
-    "zMinEndstop": 1,
-    "xMaxEndstop": 0,
-    "yMaxEndstop": 0,
-    "zMaxEndstop": 0,
+    "xMinEndstop": 0,
+    "yMinEndstop": 0,
+    "zMinEndstop": 0,
+    "xMaxEndstop": 2,
+    "yMaxEndstop": 2,
+    "zMaxEndstop": 2,
     "motherboard": 33,
     "driveSystem": 3,
     "xMaxSpeed": 200,
@@ -477,6 +482,10 @@ Values must be in range 1..255
     "deltaAlphaA": 210,
     "deltaAlphaB": 330,
     "deltaAlphaC": 90,
+    "deltaDiagonalCorrA": 0,
+    "deltaDiagonalCorrB": 0,
+    "deltaDiagonalCorrC": 0,
+    "deltaMaxRadius": 150,
     "deltaRadiusCorrA": 0,
     "deltaRadiusCorrB": 0,
     "deltaRadiusCorrC": 0,
@@ -630,6 +639,7 @@ Values must be in range 1..255
     "fanPin": "FAN_PIN",
     "scalePidToMax": 0,
     "zProbePin": -1,
+    "zProbeBedDistance": 10,
     "zProbePullup": "0",
     "zProbeOnHigh": "0",
     "zProbeXOffset": 0,
@@ -655,7 +665,7 @@ Values must be in range 1..255
     "uiStartScreenDelay": 1000,
     "xEndstopBackMove": 5,
     "yEndstopBackMove": 5,
-    "zEndstopBackMove": 1,
+    "zEndstopBackMove": 5,
     "xEndstopRetestFactor": 3,
     "yEndstopRetestFactor": 3,
     "zEndstopRetestFactor": 3,
@@ -677,7 +687,7 @@ Values must be in range 1..255
     "hasUser1": false,
     "hasUser2": false,
     "numExtruder": 1,
-    "version": 91
+    "version": 91.5
 }
 ========== End configuration string ==========
 

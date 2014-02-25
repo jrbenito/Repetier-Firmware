@@ -57,14 +57,14 @@
 #define EXT0_TEMPSENSOR_TYPE 1
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
-#define EXT0_STEP_PIN E1_STEP_PIN
-#define EXT0_DIR_PIN E1_DIR_PIN
+#define EXT0_STEP_PIN E0_STEP_PIN
+#define EXT0_DIR_PIN E0_DIR_PIN
 #define EXT0_INVERSE 1
-#define EXT0_ENABLE_PIN E1_ENABLE_PIN
+#define EXT0_ENABLE_PIN E0_ENABLE_PIN
 #define EXT0_ENABLE_ON 0
-#define EXT0_MAX_FEEDRATE 50
+#define EXT0_MAX_FEEDRATE 250
 #define EXT0_MAX_START_FEEDRATE 20
-#define EXT0_MAX_ACCELERATION 5000
+#define EXT0_MAX_ACCELERATION 1000
 #define EXT0_HEAT_MANAGER 3
 #define EXT0_WATCHPERIOD 1
 #define EXT0_PID_INTEGRAL_DRIVE_MAX 230
@@ -173,9 +173,9 @@
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR 1
-#define X_MAX_LENGTH 100
-#define Y_MAX_LENGTH 100
-#define Z_MAX_LENGTH 189.45
+#define X_MAX_LENGTH 186.75
+#define Y_MAX_LENGTH 186.75
+#define Z_MAX_LENGTH 186.75
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -199,8 +199,8 @@
 #define DELTA_DIAGONAL_CORRECTION_A 0
 #define DELTA_DIAGONAL_CORRECTION_B 0
 #define DELTA_DIAGONAL_CORRECTION_C 0
-#define DELTA_MAX_RADIUS 150
-#define DELTA_RADIUS 82.639
+#define DELTA_MAX_RADIUS 103.9
+#define DELTA_RADIUS 57.3
 #define DELTA_HOME_ON_POWER 0
 #define STEP_COUNTER
 #define DELTA_X_ENDSTOP_OFFSET_STEPS 0
@@ -211,12 +211,12 @@
 #define MAX_DELTA_SEGMENTS_PER_LINE 24
 #define STEPPER_INACTIVE_TIME 360L
 #define MAX_INACTIVE_TIME 0L
-#define MAX_FEEDRATE_X 200
-#define MAX_FEEDRATE_Y 200
-#define MAX_FEEDRATE_Z 2
-#define HOMING_FEEDRATE_X 40
-#define HOMING_FEEDRATE_Y 40
-#define HOMING_FEEDRATE_Z 2
+#define MAX_FEEDRATE_X 300
+#define MAX_FEEDRATE_Y 300
+#define MAX_FEEDRATE_Z 300
+#define HOMING_FEEDRATE_X 50
+#define HOMING_FEEDRATE_Y 50
+#define HOMING_FEEDRATE_Z 50
 #define HOMING_ORDER HOME_ORDER_ZXY
 #define ENABLE_BACKLASH_COMPENSATION 0
 #define X_BACKLASH 0
@@ -230,10 +230,10 @@
 #define MAX_HALFSTEP_INTERVAL 1999
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 1000
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1000
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 100
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X 100
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Y 100
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z 100
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1000
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X 1000
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1000
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1000
 #define MAX_JERK 20
 #define MAX_ZJERK 0.3
 #define MOVE_CACHE_SIZE 16
@@ -264,7 +264,7 @@
 #define ACK_WITH_LINENUMBER
 #define WAITING_IDENTIFIER "wait"
 #define ECHO_ON_EXECUTE
-#define EEPROM_MODE 0
+#define EEPROM_MODE 1
 
 /* ======== Servos =======
 Control the servos with
@@ -364,7 +364,7 @@ Values must be in range 1..255
     "zStepsPerMM": 98.42519685,
     "xInvert": "1",
     "xInvertEnable": 0,
-    "eepromMode": 0,
+    "eepromMode": 1,
     "yInvert": "1",
     "yInvertEnable": 0,
     "zInvert": "1",
@@ -380,11 +380,11 @@ Values must be in range 1..255
             "sensorPin": "TEMP_0_PIN",
             "heaterPin": "HEATER_0_PIN",
             "inverse": 0,
-            "maxFeedrate": 50,
+            "maxFeedrate": 250,
             "startFeedrate": 20,
             "invert": "1",
             "invertEnable": "0",
-            "acceleration": 5000,
+            "acceleration": 1000,
             "watchPeriod": 1,
             "pidP": 7,
             "pidI": 2,
@@ -404,10 +404,10 @@ Values must be in range 1..255
             "xOffsetSteps": 0,
             "yOffsetSteps": 0,
             "stepper": {
-                "name": "Extruder 1",
-                "step": "E1_STEP_PIN",
-                "dir": "E1_DIR_PIN",
-                "enable": "E1_ENABLE_PIN"
+                "name": "Extruder 0",
+                "step": "E0_STEP_PIN",
+                "dir": "E0_DIR_PIN",
+                "enable": "E0_ENABLE_PIN"
             },
             "advanceBacklashSteps": 0
         }
@@ -422,18 +422,18 @@ Values must be in range 1..255
     "zMaxEndstop": 2,
     "motherboard": 33,
     "driveSystem": 3,
-    "xMaxSpeed": 200,
-    "xHomingSpeed": 40,
-    "xTravelAcceleration": 100,
+    "xMaxSpeed": 300,
+    "xHomingSpeed": 50,
+    "xTravelAcceleration": 1000,
     "xPrintAcceleration": 1000,
-    "yMaxSpeed": 200,
-    "yHomingSpeed": 40,
-    "yTravelAcceleration": 100,
+    "yMaxSpeed": 300,
+    "yHomingSpeed": 50,
+    "yTravelAcceleration": 1000,
     "yPrintAcceleration": 1000,
-    "zMaxSpeed": 2,
-    "zHomingSpeed": 2,
-    "zTravelAcceleration": 100,
-    "zPrintAcceleration": 100,
+    "zMaxSpeed": 300,
+    "zHomingSpeed": 50,
+    "zTravelAcceleration": 1000,
+    "zPrintAcceleration": 1000,
     "xMotor": {
         "name": "X motor",
         "step": "X_STEP_PIN",
@@ -461,9 +461,9 @@ Values must be in range 1..255
     "xMinPos": 0,
     "yMinPos": 0,
     "zMinPos": 0,
-    "xLength": 100,
-    "yLength": 100,
-    "zLength": 189.45,
+    "xLength": 186.75,
+    "yLength": 186.75,
+    "zLength": 186.75,
     "alwaysCheckEndstops": "1",
     "disableX": "0",
     "disableY": "0",
@@ -478,14 +478,14 @@ Values must be in range 1..255
     "deltaSegmentsPerSecondPrint": 180,
     "deltaSegmentsPerSecondTravel": 70,
     "deltaDiagonalRod": 142,
-    "deltaHorizontalRadius": 82.639,
+    "deltaHorizontalRadius": 55.7,
     "deltaAlphaA": 210,
     "deltaAlphaB": 330,
     "deltaAlphaC": 90,
     "deltaDiagonalCorrA": 0,
     "deltaDiagonalCorrB": 0,
     "deltaDiagonalCorrC": 0,
-    "deltaMaxRadius": 150,
+    "deltaMaxRadius": 103.9,
     "deltaRadiusCorrA": 0,
     "deltaRadiusCorrB": 0,
     "deltaRadiusCorrC": 0,

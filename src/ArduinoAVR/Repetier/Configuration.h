@@ -65,13 +65,13 @@
 #define EXT0_MAX_FEEDRATE 250
 #define EXT0_MAX_START_FEEDRATE 20
 #define EXT0_MAX_ACCELERATION 1000
-#define EXT0_HEAT_MANAGER 3
+#define EXT0_HEAT_MANAGER 1
 #define EXT0_WATCHPERIOD 1
 #define EXT0_PID_INTEGRAL_DRIVE_MAX 230
 #define EXT0_PID_INTEGRAL_DRIVE_MIN 40
-#define EXT0_PID_P 7
-#define EXT0_PID_I 2
-#define EXT0_PID_D 40
+#define EXT0_PID_P 12.20
+#define EXT0_PID_I 1.0
+#define EXT0_PID_D 37.17
 #define EXT0_PID_MAX 255
 #define EXT0_ADVANCE_K 0
 #define EXT0_ADVANCE_L 0
@@ -88,8 +88,14 @@
 #define SCALE_PID_TO_MAX 0
 #define TEMP_HYSTERESIS 0
 #define EXTRUDE_MAXLENGTH 160
-#define NUM_TEMPS_USERTHERMISTOR0 0
-#define USER_THERMISTORTABLE0 {}
+#define NUM_TEMPS_USERTHERMISTOR0 61
+#define USER_THERMISTORTABLE0 {\
+{23*4,300*8},{25*4,295*8},{27*4,290*8},{28*4,285*8},{31*4,280*8},{33*4,275*8},{35*4,270*8},{38*4,265*8},{41*4,260*8},{44*4,255*8},{48*4,250*8},\
+{52*4,245*8},{56*4,240*8},{61*4,235*8},{66*4,230*8},{71*4,225*8},{78*4,220*8},{84*4,215*8},{92*4,210*8},{100*4,205*8},{109*4,200*8},{120*4,195*8},\
+{131*4,190*8},{143*4,185*8},{156*4,180*8},{171*4,175*8},{187*4,170*8},{205*4,165*8},{224*4,160*8},{245*4,155*8},{268*4,150*8},{293*4,145*8},\
+{320*4,140*8},{348*4,135*8},{379*4,130*8},{411*4,125*8},{445*4,120*8},{480*4,115*8},{516*4,110*8},{553*4,105*8},{591*4,100*8},{628*4,95*8},\
+{665*4,90*8},{702*4,85*8},{737*4,80*8},{770*4,75*8},{801*4,70*8},{830*4,65*8},{857*4,60*8},{881*4,55*8},{903*4,50*8},{922*4,45*8},{939*4,40*8},\
+{954*4,35*8},{966*4,30*8},{977*4,25*8},{985*4,20*8},{993*4,15*8},{999*4,10*8},{1004*4,5*8},{1008*4,0*8}}
 #define NUM_TEMPS_USERTHERMISTOR1 0
 #define USER_THERMISTORTABLE1 {}
 #define NUM_TEMPS_USERTHERMISTOR2 0
@@ -173,9 +179,9 @@
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR 1
-#define X_MAX_LENGTH 186.75
-#define Y_MAX_LENGTH 186.75
-#define Z_MAX_LENGTH 186.75
+#define X_MAX_LENGTH 189.45
+#define Y_MAX_LENGTH 189.45
+#define Z_MAX_LENGTH 189.45
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -210,7 +216,7 @@
 
 #define MAX_DELTA_SEGMENTS_PER_LINE 24
 #define STEPPER_INACTIVE_TIME 360L
-#define MAX_INACTIVE_TIME 0L
+#define MAX_INACTIVE_TIME 1800L
 #define MAX_FEEDRATE_X 300
 #define MAX_FEEDRATE_Y 300
 #define MAX_FEEDRATE_Z 300
@@ -264,7 +270,7 @@
 #define ACK_WITH_LINENUMBER
 #define WAITING_IDENTIFIER "wait"
 #define ECHO_ON_EXECUTE
-#define EEPROM_MODE 1
+#define EEPROM_MODE 3
 
 /* ======== Servos =======
 Control the servos with
@@ -364,7 +370,7 @@ Values must be in range 1..255
     "zStepsPerMM": 98.42519685,
     "xInvert": "1",
     "xInvertEnable": 0,
-    "eepromMode": 1,
+    "eepromMode": 3,
     "yInvert": "1",
     "yInvertEnable": 0,
     "zInvert": "1",
@@ -372,7 +378,7 @@ Values must be in range 1..255
     "extruder": [
         {
             "id": 0,
-            "heatManager": 3,
+            "heatManager": 1,
             "pidDriveMin": 40,
             "pidDriveMax": 230,
             "pidMax": 255,
@@ -386,9 +392,9 @@ Values must be in range 1..255
             "invertEnable": "0",
             "acceleration": 1000,
             "watchPeriod": 1,
-            "pidP": 7,
-            "pidI": 2,
-            "pidD": 40,
+            "pidP": 12.20,
+            "pidI": 1.0,
+            "pidD": 37.17,
             "advanceK": 0,
             "advanceL": 0,
             "waitRetractTemp": 150,
@@ -457,13 +463,13 @@ Values must be in range 1..255
     "backlashY": 0,
     "backlashZ": 0,
     "stepperInactiveTime": 360,
-    "maxInactiveTime": 0,
+    "maxInactiveTime": 1800,
     "xMinPos": 0,
     "yMinPos": 0,
     "zMinPos": 0,
-    "xLength": 186.75,
-    "yLength": 186.75,
-    "zLength": 186.75,
+    "xLength": 189.45,
+    "yLength": 189.45,
+    "zLength": 189.45,
     "alwaysCheckEndstops": "1",
     "disableX": "0",
     "disableY": "0",
@@ -478,7 +484,7 @@ Values must be in range 1..255
     "deltaSegmentsPerSecondPrint": 180,
     "deltaSegmentsPerSecondTravel": 70,
     "deltaDiagonalRod": 142,
-    "deltaHorizontalRadius": 55.7,
+    "deltaHorizontalRadius": 57.3,
     "deltaAlphaA": 210,
     "deltaAlphaB": 330,
     "deltaAlphaC": 90,
@@ -606,6 +612,12 @@ Values must be in range 1..255
         "r1": 0,
         "r2": 4700,
         "temps": [
+{23*4,300*8},{25*4,295*8},{27*4,290*8},{28*4,285*8},{31*4,280*8},{33*4,275*8},{35*4,270*8},{38*4,265*8},{41*4,260*8},{44*4,255*8},{48*4,250*8},
+{52*4,245*8},{56*4,240*8},{61*4,235*8},{66*4,230*8},{71*4,225*8},{78*4,220*8},{84*4,215*8},{92*4,210*8},{100*4,205*8},{109*4,200*8},{120*4,195*8},
+{131*4,190*8},{143*4,185*8},{156*4,180*8},{171*4,175*8},{187*4,170*8},{205*4,165*8},{224*4,160*8},{245*4,155*8},{268*4,150*8},{293*4,145*8},
+{320*4,140*8},{348*4,135*8},{379*4,130*8},{411*4,125*8},{445*4,120*8},{480*4,115*8},{516*4,110*8},{553*4,105*8},{591*4,100*8},{628*4,95*8},
+{665*4,90*8},{702*4,85*8},{737*4,80*8},{770*4,75*8},{801*4,70*8},{830*4,65*8},{857*4,60*8},{881*4,55*8},{903*4,50*8},{922*4,45*8},{939*4,40*8},
+{954*4,35*8},{966*4,30*8},{977*4,25*8},{985*4,20*8},{993*4,15*8},{999*4,10*8},{1004*4,5*8},{1008*4,0*8}
 
         ]
     },

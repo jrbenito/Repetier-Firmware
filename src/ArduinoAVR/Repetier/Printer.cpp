@@ -227,11 +227,8 @@ void Printer::updateDerivedParameter()
     cart[Z_AXIS] = zMaxSteps;
     transformCartesianStepsToDeltaSteps(cart, delta);
     maxDeltaPositionSteps = delta[0];
-    xMaxSteps = (long)(axisStepsPerMM[Z_AXIS]*(xMin+xLength));
-    yMaxSteps = (long)(axisStepsPerMM[Z_AXIS]*(yMin+yLength));
-    xMinSteps = (long)(axisStepsPerMM[Z_AXIS]*xMin);
-    yMinSteps = (long)(axisStepsPerMM[Z_AXIS]*yMin);
-    zMinSteps = 0;
+    xMaxSteps = yMaxSteps = zMaxSteps;
+    xMinSteps = yMinSteps = zMinSteps = 0;
 #elif DRIVE_SYSTEM==4
     deltaDiagonalStepsSquared = long(EEPROM::deltaDiagonalRodLength()*axisStepsPerMM[X_AXIS]);
     if(deltaDiagonalStepsSquared>46000)
@@ -670,27 +667,27 @@ void Printer::setup()
 #endif
 #if EXT0_HEATER_PIN>-1
     SET_OUTPUT(EXT0_HEATER_PIN);
-    WRITE(EXT0_HEATER_PIN,LOW);
+    WRITE(EXT0_HEATER_PIN,HEATER_PINS_INVERTED);
 #endif
 #if defined(EXT1_HEATER_PIN) && EXT1_HEATER_PIN>-1 && NUM_EXTRUDER>1
     SET_OUTPUT(EXT1_HEATER_PIN);
-    WRITE(EXT1_HEATER_PIN,LOW);
+    WRITE(EXT1_HEATER_PIN,HEATER_PINS_INVERTED);
 #endif
 #if defined(EXT2_HEATER_PIN) && EXT2_HEATER_PIN>-1 && NUM_EXTRUDER>2
     SET_OUTPUT(EXT2_HEATER_PIN);
-    WRITE(EXT2_HEATER_PIN,LOW);
+    WRITE(EXT2_HEATER_PIN,HEATER_PINS_INVERTED);
 #endif
 #if defined(EXT3_HEATER_PIN) && EXT3_HEATER_PIN>-1 && NUM_EXTRUDER>3
     SET_OUTPUT(EXT3_HEATER_PIN);
-    WRITE(EXT3_HEATER_PIN,LOW);
+    WRITE(EXT3_HEATER_PIN,HEATER_PINS_INVERTED);
 #endif
 #if defined(EXT4_HEATER_PIN) && EXT4_HEATER_PIN>-1 && NUM_EXTRUDER>4
     SET_OUTPUT(EXT4_HEATER_PIN);
-    WRITE(EXT4_HEATER_PIN,LOW);
+    WRITE(EXT4_HEATER_PIN,HEATER_PINS_INVERTED);
 #endif
 #if defined(EXT5_HEATER_PIN) && EXT5_HEATER_PIN>-1 && NUM_EXTRUDER>5
     SET_OUTPUT(EXT5_HEATER_PIN);
-    WRITE(EXT5_HEATER_PIN,LOW);
+    WRITE(EXT5_HEATER_PIN,HEATER_PINS_INVERTED);
 #endif
 #if EXT0_EXTRUDER_COOLER_PIN>-1
     SET_OUTPUT(EXT0_EXTRUDER_COOLER_PIN);
@@ -718,7 +715,7 @@ void Printer::setup()
 #endif
 #if CASE_LIGHTS_PIN>=0
     SET_OUTPUT(CASE_LIGHTS_PIN);
-    WRITE(CASE_LIGHTS_PIN, HIGH);
+    WRITE(CASE_LIGHTS_PIN, CASE_LIGHT_DEFAULT_ON);
 #endif // CASE_LIGHTS_PIN
 #ifdef XY_GANTRY
     Printer::motorX = 0;

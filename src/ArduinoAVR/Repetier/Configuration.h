@@ -1123,6 +1123,7 @@ is always running and is not hung up for some unknown reason. */
 
 /* Define a pin to tuen light on/off */
 #define CASE_LIGHTS_PIN -1
+#define CASE_LIGHT_DEFAULT_ON 1
 
 /** Set to false to disable SD support: */
 #ifndef SDSUPPORT  // Some boards have sd support on board. These define the values already in pins.h
@@ -1171,8 +1172,9 @@ The following settings override uiconfig.h!
 12 = FELIXPrinters Controller
 13 = SeeMeCNC Display on Rambo (ORION)
 14 = OpenHardware.co.za LCD2004 V2014
+15 = Sanguinololu + Panelolu2
 */
-#define FEATURE_CONTROLLER 2
+#define FEATURE_CONTROLLER 0
 
 /**
 Select the language to use.
@@ -1236,7 +1238,7 @@ same setting.
 /**
 Beeper sound definitions for short beeps during key actions
 and longer beeps for important actions.
-Parameter is delay in microseconds and the secons is the number of repetitions.
+Parameter is delay in microseconds and the second is the number of repetitions.
 Values must be in range 1..255
 */
 #define BEEPER_SHORT_SEQUENCE 2,2

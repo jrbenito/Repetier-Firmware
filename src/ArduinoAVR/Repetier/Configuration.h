@@ -69,9 +69,9 @@
 #define EXT0_WATCHPERIOD 1
 #define EXT0_PID_INTEGRAL_DRIVE_MAX 230
 #define EXT0_PID_INTEGRAL_DRIVE_MIN 40
-#define EXT0_PID_P 12.20
-#define EXT0_PID_I 1.0
-#define EXT0_PID_D 37.17
+#define EXT0_PID_P 14.88
+#define EXT0_PID_I 1.31
+#define EXT0_PID_D 42.14
 #define EXT0_PID_MAX 255
 #define EXT0_ADVANCE_K 0
 #define EXT0_ADVANCE_L 0
@@ -206,11 +206,11 @@
 #define DELTA_DIAGONAL_CORRECTION_B 0
 #define DELTA_DIAGONAL_CORRECTION_C 0
 #define DELTA_MAX_RADIUS 103.9
-#define DELTA_RADIUS 57.3
+#define DELTA_RADIUS 55.5
 #define DELTA_HOME_ON_POWER 0
 #define STEP_COUNTER
-#define DELTA_X_ENDSTOP_OFFSET_STEPS 0
-#define DELTA_Y_ENDSTOP_OFFSET_STEPS 0
+#define DELTA_X_ENDSTOP_OFFSET_STEPS 14
+#define DELTA_Y_ENDSTOP_OFFSET_STEPS 10
 #define DELTA_Z_ENDSTOP_OFFSET_STEPS 0
 //#define SOFTWARE_LEVELING
 
@@ -220,9 +220,9 @@
 #define MAX_FEEDRATE_X 300
 #define MAX_FEEDRATE_Y 300
 #define MAX_FEEDRATE_Z 300
-#define HOMING_FEEDRATE_X 50
-#define HOMING_FEEDRATE_Y 50
-#define HOMING_FEEDRATE_Z 50
+#define HOMING_FEEDRATE_X 30
+#define HOMING_FEEDRATE_Y 30
+#define HOMING_FEEDRATE_Z 30
 #define HOMING_ORDER HOME_ORDER_ZXY
 #define ENABLE_BACKLASH_COMPENSATION 0
 #define X_BACKLASH 0
@@ -392,9 +392,9 @@ Values must be in range 1..255
             "invertEnable": "0",
             "acceleration": 1000,
             "watchPeriod": 1,
-            "pidP": 12.20,
-            "pidI": 1.0,
-            "pidD": 37.17,
+            "pidP": 14.88,
+            "pidI": 1.31,
+            "pidD": 42.14,
             "advanceK": 0,
             "advanceL": 0,
             "waitRetractTemp": 150,
@@ -407,8 +407,8 @@ Values must be in range 1..255
             "deselectCommands": "",
             "xOffset": 0,
             "yOffset": 0,
-            "xOffsetSteps": 0,
-            "yOffsetSteps": 0,
+            "xOffsetSteps": 14,
+            "yOffsetSteps": 10,
             "stepper": {
                 "name": "Extruder 0",
                 "step": "E0_STEP_PIN",
@@ -429,15 +429,15 @@ Values must be in range 1..255
     "motherboard": 33,
     "driveSystem": 3,
     "xMaxSpeed": 300,
-    "xHomingSpeed": 50,
+    "xHomingSpeed": 30,
     "xTravelAcceleration": 1000,
     "xPrintAcceleration": 1000,
     "yMaxSpeed": 300,
-    "yHomingSpeed": 50,
+    "yHomingSpeed": 30,
     "yTravelAcceleration": 1000,
     "yPrintAcceleration": 1000,
     "zMaxSpeed": 300,
-    "zHomingSpeed": 50,
+    "zHomingSpeed": 30,
     "zTravelAcceleration": 1000,
     "zPrintAcceleration": 1000,
     "xMotor": {
@@ -484,7 +484,7 @@ Values must be in range 1..255
     "deltaSegmentsPerSecondPrint": 180,
     "deltaSegmentsPerSecondTravel": 70,
     "deltaDiagonalRod": 142,
-    "deltaHorizontalRadius": 57.3,
+    "deltaHorizontalRadius": 55.5,
     "deltaAlphaA": 210,
     "deltaAlphaB": 330,
     "deltaAlphaC": 90,
